@@ -39,9 +39,11 @@ I hope it helps you...
 Clone the repo and run the install script:
 
 ```bash
-git clone https://github.com/tuusuario/dotfiles.git
+git clone https://github.com/Zumoxsx/termux.git
 cd dotfiles
-bash install.sh
+chmod +x *
+./Dependencies.sh
+./install.sh
 ```
 # Contact
 Feel free to reach me here:
