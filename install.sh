@@ -52,7 +52,7 @@ check_dependencies() {
 create_backup() {
   local target="$1"
   local backup_path="$BACKUP_DIR/${target##*/}_$(date +%H%M%S)"
-  
+
   info "Creating backup of $target in $backup_path"
   mkdir -p "$(dirname "$backup_path")"
   cp -r "$target" "$backup_path" || warning "Failed to backup $target"
@@ -61,7 +61,7 @@ create_backup() {
 safe_copy() {
   local src="$1"
   local dest="$2"
-  
+
   if [ ! -e "$src" ]; then
     warning "Source $src does not exist, skipping"
     return
@@ -78,39 +78,40 @@ safe_copy() {
 
 setup_configs() {
   info "Setting up configuration files..."
-  
+
   # LSD config
   safe_copy "$SCRIPT_DIR/configs/lsd" "$CONFIG_DIR/lsd"
-  
+
   # Termux config
   if [ -d "$HOME/.termux" ]; then
     safe_copy "$SCRIPT_DIR/configs/termux" "$HOME/.termux"
   fi
-  
+
   # Dotfiles
   safe_copy "$SCRIPT_DIR/configs/bashrc" "$HOME/.bashrc"
   safe_copy "$SCRIPT_DIR/configs/.zumo.txt" "$HOME/.zumo.txt"
   safe_copy "$SCRIPT_DIR/configs/.tmux.conf" "$HOME/.tmux.conf"
-  
+
   # Neovim setup
-  rm /data/data/com.termux/files/usr/etc/motd
-  termux-reload-settings
   setup_neovim
+
 }
 
 setup_neovim() {
   if [ ! -d "$CONFIG_DIR/nvim" ]; then
     info "Setting up Neovim configuration..."
-    
+
     if git clone --depth=1  https://github.com/NvChad/starter "$CONFIG_DIR/nvim"; then
       nvim --headless +qall 2>/dev/null || true
-      
+
       if [ -d "$SCRIPT_DIR/configs/nvim" ]; then
         safe_copy "$SCRIPT_DIR/configs/nvim/chadrc.lua" "$CONFIG_DIR/nvim/lua/chadrc.lua"
         safe_copy "$SCRIPT_DIR/configs/nvim/mappings.lua" "$CONFIG_DIR/nvim/lua/mappings.lua"
+        termux-reload-settings
+        rm /data/data/com.termux/files/usr/etc/motd 2>/dev/null
 
       fi
-      
+
       success "Neovim configuration completed"
     else
       warning "Failed to clone NvChad starter template"
