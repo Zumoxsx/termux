@@ -25,13 +25,13 @@ I hope it helps you...
 ## Mappings
 ### Terminal with tmux
 - `Ctrl + p` Open terminal Horizontalment
-- `Ctrl + o` Open terminal verticalment
+- `Ctrl + o` Open terminal Verticalment
 - `Ctrl + up, dow, rigth, left` Navegation
 ### Nvim
 - `Ctrl + s` Saved
 - `Ctrl + e` Exit
 - `Ctrl + a` Search File
-- `Space + t + h`
+- `Space + t + h` Change theme
 
 
 ## Install
