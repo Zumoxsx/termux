@@ -40,7 +40,7 @@ Clone the repo and run the install script:
 
 ```bash
 git clone https://github.com/Zumoxsx/termux.git
-cd dotfiles
+cd termux
 chmod +x *
 ./Dependencies.sh
 ./install.sh
