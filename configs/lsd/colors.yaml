@@ -1,0 +1,30 @@
+#  Dracula
+#  ┬  ┌─┐┌┬┐
+#  │  └─┐ ││
+#  ┴─┘└─┘─┴┘
+# urrick hunt
+
+user: "#00FFFF"                     # Cian neón
+group: "#cccccc"                    # Blanco puro
+permission:
+  read: "#00B7EB"                   # Azul neón
+  write: "#FF00FF"                  # Magenta neón
+  exec: "#00FFFF"                   # Cian neón
+  exec-sticky: "#00FFFF"            # Cian neón
+  no-access: "#FF0000"              # Rojo neón
+date:
+  hour-old: "#E0E0E0"               # Gris muy claro
+  day-old: "#CCCCCC"                # Gris claro
+  older: "#AAAAAA"                  # Gris medio
+size:
+  none: "#00FF1C"                   # Gris medio
+  small: "#00FF1C"                  # Verde neón (exacto)
+  medium: "#00FF1C"                # Naranja neón
+  large: "#00FF1C"                  # Rojo neón
+inode:
+  valid: "#FFFFFF"                  # Blanco puro
+  invalid: "#FF0000"                # Rojo neón
+links:
+  valid: "#00FFFF"                  # Cian neón
+  invalid: "#FF0000"                # Rojo neón
+tree-edge: "#00B7EB"               # Azul neón
